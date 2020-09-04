@@ -1,6 +1,17 @@
-module.exports = function(api) {
-  api.cache(true);
-  return {
-    presets: ['babel-preset-expo'],
-  };
+const path = require('path');
+
+module.exports = {
+  parser: 'babel-eslint',
+  presets: ['module:metro-react-native-babel-preset'],
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: [path.resolve('./')],
+        alias: {
+          cosmo: './'
+        }
+      }
+    ]
+  ]
 };
